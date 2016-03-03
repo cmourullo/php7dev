@@ -4,4 +4,4 @@ function setAge(int $age) {
 	var_dump($age);
 }
 
-setAge(30);
+setAge('30');
