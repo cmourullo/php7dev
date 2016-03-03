@@ -1,4 +1,5 @@
 <?php
+class User {}
 
 interface SomeInterface {
 	public function getUser() : User;
@@ -6,7 +7,9 @@ interface SomeInterface {
 
 class SomeClass implements SomeInterface {
 	
-	public function getUser() {
-		return [];
+	public function getUser() : User {
+		return new User;
 	}	
 }
+
+(new SomeClass)->getUser();
