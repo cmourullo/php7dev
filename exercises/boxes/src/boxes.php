@@ -22,4 +22,4 @@ class Boxes
    }
 }
 
-echo Boxes::minimalNumberOfBoxes(12, 3, 3);
+//echo Boxes::minimalNumberOfBoxes(12, 3, 3);
