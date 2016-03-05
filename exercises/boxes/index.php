@@ -3,14 +3,12 @@ class Boxes
 {
    private static function calculateUsage(&$remainProducts, $availableBoxes, $boxSize)
    {
-      $used = 0;
-      for ($i=0; $i<$availableBoxes; $i++) {
-         if ($remainProducts - $boxSize >= 0) {
-            $remainProducts -= $boxSize;
-            $used ++;
-         }
+     if ($remainProducts >= $boxSize) {
+         $used = (int) ($remainProducts / $boxSize);
+         $used = ($used > $availableBoxes) ? $availableBoxes : $used;
+         $remainProducts = $used * $boxSize;
       }
-      return $used;
+      return (!isset($used)) ? 0 : $used;
    }
 
    public static function minimalNumberOfBoxes($products, $availableLargeBoxes, $availableSmallBoxes)
