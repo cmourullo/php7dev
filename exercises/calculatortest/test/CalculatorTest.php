@@ -2,6 +2,10 @@
 use App\Libraries\Calculator;
 
 class CalculatorTest extends PHPUnit_Framework_TestCase {
+    public function setUp()
+    {
+        $this->calculator = new Calculator;
+    }
     public function inputNumbers()
     {
         return [
@@ -17,9 +21,7 @@ class CalculatorTest extends PHPUnit_Framework_TestCase {
      */
     public function testAddNumbers($x, $y, $sum)
     {
-        $calc = new Calculator;
-
-        $this->assertEquals($sum, $calc->add($x, $y));
+        $this->assertEquals($sum, $this->calculator->add($x, $y));
     }
 
     /**
@@ -27,7 +29,6 @@ class CalculatorTest extends PHPUnit_Framework_TestCase {
      */
     public function testThrowsExceptionIfNonNumericIsPassed()
     {
-        $calc = new Calculator;
-        $calc->add('a', []);
+        $this->calculator->add('a', []);
     }
 }
