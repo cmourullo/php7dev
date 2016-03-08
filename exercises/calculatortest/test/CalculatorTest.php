@@ -2,18 +2,24 @@
 use App\Libraries\Calculator;
 
 class CalculatorTest extends PHPUnit_Framework_TestCase {
-    public function testAddNumnbers()
+    public function inputNumbers()
     {
-        $calc = new Calculator;
-        $values = [
+        return [
             [2, 2, 4],
             [2.5, 2.5, 5],
-            [-3, 1, -2]
+            [-3, 1, -2],
+            [-9, -9, -18]
         ];
+    }
 
-        foreach ($values as $numbers) {
-            $this->assertEquals($numbers[2], $calc->add($numbers[0], $numbers[1]));
-        }
+    /**
+     * @dataProvider inputNumbers
+     */
+    public function testAddNumbers($x, $y, $sum)
+    {
+        $calc = new Calculator;
+
+        $this->assertEquals($sum, $calc->add($x, $y));
     }
 
     /**
