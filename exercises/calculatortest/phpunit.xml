@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="" ?>
+<phpunit bootstrap="vendor/autoload.php"
+         colors="true"
+         convertErrorsToExceptions="true"
+         converNoticesToExceptions="true"
+         converWarningsToExceptions="true"
+         processIsolation="false"
+         stopOnFailuer="false"
+         syntaxCheck="false"
+>
+    <textsutes>
+        <testsuite name="App Test">
+            <directory>test</directory>
+        </testsuite>
+    </textsutes>
+</phpunit>
