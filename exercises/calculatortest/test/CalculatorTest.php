@@ -6,6 +6,7 @@ class CalculatorTest extends PHPUnit_Framework_TestCase {
     {
         $calc = new Calculator;
         $this->assertEquals(4, $calc->add(2,2));
+        $this->assertEquals(5, $calc->add(2.5,2.5));
     }
 
     /**
