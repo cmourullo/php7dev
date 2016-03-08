@@ -1,5 +1,6 @@
 <?php
 
+use App\Libraries\Calculator;
 
 class CalculatorTest extends PHPUnit_Framework_TestCase {
     public function testAddNumnbers()

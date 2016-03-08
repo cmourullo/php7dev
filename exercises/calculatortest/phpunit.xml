@@ -1,15 +1,15 @@
 <phpunit bootstrap="vendor/autoload.php"
          colors="true"
          convertErrorsToExceptions="true"
-         converNoticesToExceptions="true"
-         converWarningsToExceptions="true"
+         convertNoticesToExceptions="true"
+         convertWarningsToExceptions="true"
          processIsolation="false"
          stopOnFailuer="false"
          syntaxCheck="false"
 >
-    <textsutes>
+    <textsuites>
         <testsuite name="App Test">
             <directory>test</directory>
         </testsuite>
-    </textsutes>
+    </textsuites>
 </phpunit>
