@@ -23,27 +23,35 @@ class HtmlRender
 
     private function getBody()
     {
-        ob_start();
-        echo '<body>';
-        echo '<table>';
+        $body = '';
+        $body .=  '<body>';
+        $body .= '<table>';
+        
         foreach ($this->coordinates as $coordinate) {
-            echo '<tr>';
-            echo "<td>{$coordinate[0]}</td><td>{$coordinate[1]}</td>";
-            echo '</tr>';
+            $body .= '<tr>';
+            $body .= "<td>{$coordinate[0]}</td><td>{$coordinate[1]}</td>";
+            $body .= '</tr>';
         }
-        echo '</table>';
-        echo '</body>';
+        
+        $body .= '</table>';
+        $body .= '</body>';
 
-        $body = ob_get_contents();
-        ob_end_clean();
         return $body;
     }
 
     public function renderCoordinates()
     {
-        echo $this->getHeader();
-        echo $this->getBody();
-        echo $this->getFooter();
+        $fp = fopen("php://output", "w");
+
+        $header =  $this->getHeader();
+        $body =  $this->getBody();
+        $footer =  $this->getFooter();
+        
+        fwrite($fp, $header);
+        fwrite($fp, $body);
+        fwrite($fp, $footer);
+
+        
 
     }
 }
