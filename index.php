@@ -1,5 +1,5 @@
 <?php
-include_once 'library/HtmlRender.php';
+require_once 'library/HtmlRender.php';
 
 $coordinates = array(
     array(1.23, 2.34),
@@ -16,4 +16,4 @@ $coordinates = array(
 //echo '</pre>';
 
 $htmlRender = new HtmlRender($coordinates);
-$htmlRender->renderCoordinates();
+$htmlRender->getRenderization();

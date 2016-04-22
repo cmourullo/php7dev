@@ -1,6 +1,7 @@
 <?php
+require_once 'library/Render.php';
 
-class HtmlRender
+class HtmlRender implements Render
 {
     private $coordinates;
 
@@ -9,27 +10,20 @@ class HtmlRender
         $this->coordinates = $coordinates;
     }
 
-    private function getHeader()
+    public function getHeader()
     {
         $header = '<html><head></head>';
         return $header;
     }
 
-    private function getFooter()
+    public function getBody()
     {
-        $footer = '</html>';
-        return $footer;
-    }
-
-    private function getBody()
-    {
-        $body = '';
-        $body .=  '<body>';
-        $body .= '<table>';
+        $body =  '<body>';
+        $body .=  '<table>';
         
         foreach ($this->coordinates as $coordinate) {
             $body .= '<tr>';
-            $body .= "<td>{$coordinate[0]}</td><td>{$coordinate[1]}</td>";
+            $body .= "<td>{$coordinate[0]}</td><td>{$coordinate[1]}</td>"; 
             $body .= '</tr>';
         }
         
@@ -39,7 +33,13 @@ class HtmlRender
         return $body;
     }
 
-    public function renderCoordinates()
+     public function getFooter()
+    {
+        $footer = '</html>';
+        return $footer;
+    }
+
+    public function getRenderization()
     {
         $fp = fopen("php://output", "w");
 
@@ -50,8 +50,5 @@ class HtmlRender
         fwrite($fp, $header);
         fwrite($fp, $body);
         fwrite($fp, $footer);
-
-        
-
     }
 }
