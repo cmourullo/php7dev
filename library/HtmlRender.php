@@ -18,11 +18,13 @@ class HtmlRender extends OutputHandler implements Render
     public function getBody()
     {
         $body =  '<body>';
-        $body .=  '<table>';
-        
-        $body .= $this->getTable();
-        
-        $body .= '</table>';
+        $openTable = '<table>';
+        $closeTable = '</table>';
+        $openColumn = '<tr><td>';
+        $closeColumn = '</tr></td>';
+        $rowSeparate = '</td><td>';
+
+        $body .= $this->getTable($openTable, $closeTable, $openColumn, $closeColumn, $rowSeparate);
         $body .= '</body>';
 
         return $body;
@@ -34,7 +36,7 @@ class HtmlRender extends OutputHandler implements Render
         return $footer;
     }
 
-    public function getRenderization()
+    public function getRendering()
     {
         $fp = fopen("php://output", "w");
 

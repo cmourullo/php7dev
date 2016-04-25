@@ -25,17 +25,21 @@ class OutputHandler
         return $this->coordinates;
     }
 
-    public function getTable()
+    public function getTable($openTable, $closeTable, $openColumn, $closeColumn, $rowSeparate)
     {
         $coordinates = $this->getCoordinates();
-        $table = '';
+
+        $table = $openTable;
 
         foreach ($coordinates as $coordinate) {
-            $table .= '<tr>';
-            $table .= "<td>{$coordinate['latitude']}</td>";
-            $table .= "<td>{$coordinate['longitude']}</td>";
-            $table .= '</tr>';
+            $table .= $openColumn;
+            $table .= $coordinate['latitude'];
+            $table .= $rowSeparate;
+            $table .= $coordinate['longitude'];
+            $table .= $closeColumn;
         }
+
+        $table .= $closeTable;
 
         return $table;
     }
