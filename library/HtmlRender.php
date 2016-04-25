@@ -1,13 +1,12 @@
 <?php
 require_once 'library/Render.php';
+require_once 'library/OutputHandler.php';
 
-class HtmlRender implements Render
+class HtmlRender extends OutputHandler implements Render
 {
-    private $coordinates;
-
     function __construct($coordinates)
     {
-        $this->coordinates = $coordinates;
+        parent::__construct($coordinates);
     }
 
     public function getHeader()
@@ -18,12 +17,14 @@ class HtmlRender implements Render
 
     public function getBody()
     {
+        $coordinates = $this->getCoordinates();
+
         $body =  '<body>';
         $body .=  '<table>';
         
-        foreach ($this->coordinates as $coordinate) {
+        foreach ($coordinates as $coordinate) {
             $body .= '<tr>';
-            $body .= "<td>{$coordinate[0]}</td><td>{$coordinate[1]}</td>"; 
+            $body .= "<td>{$coordinate['latitude']}</td><td>{$coordinate['longitude']}</td>";
             $body .= '</tr>';
         }
         

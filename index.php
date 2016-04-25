@@ -16,8 +16,9 @@ $coordinates = array(
 //print_r($coordinates);
 //echo '</pre>';
 
-// $render = new HtmlRender($coordinates);
-$render = new CsvRender($coordinates);
+$renderHtml = new HtmlRender($coordinates);
+$renderCsv = new CsvRender($coordinates);
+$renderHtml->getRenderization();
 echo '<pre>';
-$render->getRenderization();
+$renderCsv->getRenderization();
 echo '</pre>';
