@@ -26,7 +26,7 @@ class CsvRender implements Render
         return $body;
     }
 
-     public function getFooter()
+    public function getFooter()
     {
         return false;
     }
