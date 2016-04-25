@@ -20,18 +20,11 @@ class OutputHandler
         }
     }
 
-    public function getCoordinates()
-    {
-        return $this->coordinates;
-    }
-
     public function getTable($openTable, $closeTable, $openColumn, $closeColumn, $rowSeparate)
     {
-        $coordinates = $this->getCoordinates();
-
         $table = $openTable;
 
-        foreach ($coordinates as $coordinate) {
+        foreach ($this->coordinates as $coordinate) {
             $table .= $openColumn;
             $table .= $coordinate["latitude"];
             $table .= $rowSeparate;
