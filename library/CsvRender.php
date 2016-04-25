@@ -1,34 +1,37 @@
 <?php
 require_once 'library/Render.php';
+require_once 'library/OutputHandler.php';
 
-class CsvRender implements Render
+class CsvRender extends OutputHandler implements Render
 {
-    private $coordinates;
-
     function __construct($coordinates)
     {
-        $this->coordinates = $coordinates;
+        parent::__construct($coordinates);
     }
 
     public function getHeader()
     {
-        return false;
+        $header = "";
+        return $header;
     }
 
     public function getBody()
     {
-        $body =  '';
-        
-        foreach ($this->coordinates as $coordinate) {
-            $body .= "{$coordinate[0]},{$coordinate[1]}\n"; 
-        }
+        $openTable = "";
+        $closeTable = "";
+        $openColumn = "";
+        $closeColumn = "\n";
+        $rowSeparate = ",";
+
+        $body = $this->getTable($openTable, $closeTable, $openColumn, $closeColumn, $rowSeparate);
 
         return $body;
     }
 
     public function getFooter()
     {
-        return false;
+        $footer = "";
+        return $footer;
     }
 
     public function getRendering()

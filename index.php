@@ -10,15 +10,9 @@ $coordinates = array(
     array(8.23, 9.34),
 );
 
-
-//echo '<pre>';
-//echo 'Coordinates:: ';
-//print_r($coordinates);
-//echo '</pre>';
-
 $renderHtml = new HtmlRender($coordinates);
 $renderCsv = new CsvRender($coordinates);
 $renderHtml->getRendering();
-//echo '<pre>';
-//$renderCsv->getRendering();
-//echo '</pre>';
+echo "<pre>";
+$renderCsv->getRendering();
+echo "</pre>";

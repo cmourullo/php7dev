@@ -13,8 +13,8 @@ class OutputHandler
     function __construct($coordinates)
     {
         foreach ($coordinates as $coordinate) {
-            $preparedCoordinate['latitude'] = $coordinate[0];
-            $preparedCoordinate['longitude'] = $coordinate[1];
+            $preparedCoordinate["latitude"] = $coordinate[0];
+            $preparedCoordinate["longitude"] = $coordinate[1];
 
             $this->coordinates[] = $preparedCoordinate;
         }
@@ -33,9 +33,9 @@ class OutputHandler
 
         foreach ($coordinates as $coordinate) {
             $table .= $openColumn;
-            $table .= $coordinate['latitude'];
+            $table .= $coordinate["latitude"];
             $table .= $rowSeparate;
-            $table .= $coordinate['longitude'];
+            $table .= $coordinate["longitude"];
             $table .= $closeColumn;
         }
 

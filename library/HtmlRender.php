@@ -11,28 +11,28 @@ class HtmlRender extends OutputHandler implements Render
 
     public function getHeader()
     {
-        $header = '<html><head></head>';
+        $header = "<html><head></head>";
         return $header;
     }
 
     public function getBody()
     {
-        $body =  '<body>';
-        $openTable = '<table>';
-        $closeTable = '</table>';
-        $openColumn = '<tr><td>';
-        $closeColumn = '</tr></td>';
-        $rowSeparate = '</td><td>';
+        $body =  "<body>";
+        $openTable = "<table>";
+        $closeTable = "</table>";
+        $openColumn = "<tr><td>";
+        $closeColumn = "</tr></td>";
+        $rowSeparate = "</td><td>";
 
         $body .= $this->getTable($openTable, $closeTable, $openColumn, $closeColumn, $rowSeparate);
-        $body .= '</body>';
+        $body .= "</body>";
 
         return $body;
     }
 
      public function getFooter()
     {
-        $footer = '</html>';
+        $footer = "</html>";
         return $footer;
     }
 
