@@ -1,5 +1,6 @@
 <?php
 require_once 'library/HtmlRender.php';
+require_once 'library/CsvRender.php';
 
 $coordinates = array(
     array(1.23, 2.34),
@@ -15,5 +16,8 @@ $coordinates = array(
 //print_r($coordinates);
 //echo '</pre>';
 
-$htmlRender = new HtmlRender($coordinates);
-$htmlRender->getRenderization();
+// $render = new HtmlRender($coordinates);
+$render = new CsvRender($coordinates);
+echo '<pre>';
+$render->getRenderization();
+echo '</pre>';
