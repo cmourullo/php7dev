@@ -20,9 +20,24 @@ class OutputHandler
         }
     }
 
-    function getCoordinates()
+    public function getCoordinates()
     {
         return $this->coordinates;
+    }
+
+    public function getTable()
+    {
+        $coordinates = $this->getCoordinates();
+        $table = '';
+
+        foreach ($coordinates as $coordinate) {
+            $table .= '<tr>';
+            $table .= "<td>{$coordinate['latitude']}</td>";
+            $table .= "<td>{$coordinate['longitude']}</td>";
+            $table .= '</tr>';
+        }
+
+        return $table;
     }
 
 }

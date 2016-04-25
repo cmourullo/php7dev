@@ -17,16 +17,10 @@ class HtmlRender extends OutputHandler implements Render
 
     public function getBody()
     {
-        $coordinates = $this->getCoordinates();
-
         $body =  '<body>';
         $body .=  '<table>';
         
-        foreach ($coordinates as $coordinate) {
-            $body .= '<tr>';
-            $body .= "<td>{$coordinate['latitude']}</td><td>{$coordinate['longitude']}</td>";
-            $body .= '</tr>';
-        }
+        $body .= $this->getTable();
         
         $body .= '</table>';
         $body .= '</body>';
