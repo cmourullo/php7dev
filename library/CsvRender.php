@@ -31,7 +31,7 @@ class CsvRender implements Render
         return false;
     }
 
-    public function getRenderization()
+    public function getRendering()
     {
         $fp = fopen("php://output", "w");
 
