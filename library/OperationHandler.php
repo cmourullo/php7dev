@@ -12,7 +12,8 @@ class OperationHandler
     public function doOperation($queryOperation)
     {
         $operationRequested = strtolower($queryOperation[1]);
-
+        $firstElement = (int)$queryOperation[0];
+        $secondElement = (int)$queryOperation[2];
         try{
             if(isset($operationRequested)) {
                 switch ($operationRequested) {
@@ -30,10 +31,12 @@ class OperationHandler
                         break;
                 }
 
-                $controller = new $operation($queryOperation[0], $queryOperation[2]);
-                $result = $controller->doOperation();
+                $controller = new $operation($firstElement, $secondElement);
+                $total = $controller->doOperation();
 
-                return "## Result operation $operation:: $result \n";
+                $result = "## The result of the operation $operation $firstElement and $secondElement is $total \n";
+
+                return $result;
             } else {
                 throw new Exception('Requested operation empty.', 2);
             }

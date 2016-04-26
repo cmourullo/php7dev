@@ -10,7 +10,7 @@ spl_autoload_register(function($className) {
 
 $queryOperations[] = array(5, 'Plus', 3);
 $queryOperations[] = array(5, 'Minus', 3);
-$queryOperations[] = array(5, 'Plus', 3);
+$queryOperations[] = array(2, 'Times', 8);
 
 $operationHandler = new OperationHandler();
 
