@@ -3,15 +3,14 @@
 /**
  * Created by PhpStorm.
  * User: carlos
- * Date: 25/04/2016
- * Time: 20:40
+ * Date: 26/04/2016
+ * Time: 19:11
  */
-
-class Addition extends OperatorController implements Operation
+class Subtraction extends OperatorController implements Operation
 {
     public function __construct($firstOperator, $secondOperator)
     {
-       parent::__construct($firstOperator, $secondOperator);
+        parent::__construct($firstOperator, $secondOperator);
         return true;
     }
 
@@ -20,7 +19,7 @@ class Addition extends OperatorController implements Operation
         $firstOperator = $this->getFirstOperator();
         $secondOperator = $this->getSecondOperator();
 
-        $result = $firstOperator + $secondOperator;
+        $result = $firstOperator - $secondOperator;
         return $result;
     }
 }

@@ -33,7 +33,7 @@ class OperationHandler
                 $controller = new $operation($queryOperation[0], $queryOperation[2]);
                 $result = $controller->doOperation();
 
-                return "## Result:: $result \n";
+                return "## Result operation $operation:: $result \n";
             } else {
                 throw new Exception('Requested operation empty.', 2);
             }
