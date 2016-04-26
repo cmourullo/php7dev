@@ -1,4 +1,8 @@
 <?php
+/**
+ * Author: Carlos Mourullo (carlosmourullo@gmail.com)
+ * Date: 26/04/2016
+ */
 
 // Autoload function
 spl_autoload_register(function($className) {
