@@ -1,6 +1,8 @@
 <?php
 
 $queryOperation = array(5, 'Plus', 3);
+$firstElement = (int)$queryOperation[0];
+$secondElement = (int)$queryOperation[2];
 $operationRequested = strtolower($queryOperation[1]);
 //$operation = array(2, 'Times', 8);
 
@@ -23,10 +25,10 @@ try{
                 break;
         }
 
-        $controller = new $operation();
+        $controller = new $operation($firstElement, $secondElement);
         $result = $controller->doOperation();
 
-        echo $result;
+        echo ' ## Result:: '.$result;
     } else {
         throw new Exception('Requested operation empty.', 2);
     }
