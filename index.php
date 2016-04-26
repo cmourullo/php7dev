@@ -1,4 +1,8 @@
 <?php
+/**
+ * Author: Carlos Mourullo (carlosmourullo@gmail.com)
+ * Date: 26/04/2016
+ */
 require_once 'library/HtmlRender.php';
 require_once 'library/CsvRender.php';
 
