@@ -1,19 +1,22 @@
 <?php
 
 /**
- * Created by PhpStorm.
- * User: carlos
- * Date: 26/04/2016
- * Time: 18:46
+ * Class OperationHandler: is the class who handle all the Operations. To include a new Operation
+ * is necessary create the new Class extending OperationController class implement the Interface
+ * Operation and the new case.
  */
-
 class OperationHandler
 {
+    /**
+     * @param $queryOperation
+     * @return string
+     */
     public function doOperation($queryOperation)
     {
         $operationRequested = strtolower($queryOperation[1]);
         $firstElement = (int)$queryOperation[0];
         $secondElement = (int)$queryOperation[2];
+
         try{
             if(isset($operationRequested)) {
                 switch ($operationRequested) {
@@ -31,9 +34,11 @@ class OperationHandler
                         break;
                 }
 
+                // Create generic Operation
                 $controller = new $operation($firstElement, $secondElement);
-                $total = $controller->doOperation();
 
+                // Obtain the operation result
+                $total = $controller->doOperation();
                 $result = "## The result of the operation $operation $firstElement and $secondElement is $total \n";
 
                 return $result;
@@ -42,8 +47,6 @@ class OperationHandler
             }
         }catch(Exception $e){
             echo $e;
-            die('<h1>404 Not Found</h1>');
         }
     }
-
 }

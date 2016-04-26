@@ -1,25 +1,30 @@
 <?php
 
 /**
- * Created by PhpStorm.
- * User: carlos
- * Date: 26/04/2016
- * Time: 19:11
+ * Class Subtraction
  */
 class Subtraction extends OperatorController implements Operation
 {
+    /**
+     * Subtraction constructor.
+     * @param $firstOperator
+     * @param $secondOperator
+     */
     public function __construct($firstOperator, $secondOperator)
     {
         parent::__construct($firstOperator, $secondOperator);
         return true;
     }
 
+    /**
+     * @return integer
+     */
     public function doOperation()
     {
         $firstOperator = $this->getFirstOperator();
         $secondOperator = $this->getSecondOperator();
 
-        $result = $firstOperator - $secondOperator;
+        $result = (int)($firstOperator - $secondOperator);
         return $result;
     }
 }

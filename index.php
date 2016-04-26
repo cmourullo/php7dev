@@ -1,4 +1,6 @@
 <?php
+
+// Autoload function
 spl_autoload_register(function($className) {
     $path = dirname(__FILE__)."/library/$className.php";
     if(file_exists($path)) {
@@ -8,13 +10,16 @@ spl_autoload_register(function($className) {
     }
 });
 
+// Create operation examples
 $queryOperations[] = array(5, 'Plus', 3);
 $queryOperations[] = array(5, 'Minus', 3);
 $queryOperations[] = array(2, 'Times', 8);
 $queryOperations[] = array(8, 'Divide', 2);
 
+// Create the Operation Handler
 $operationHandler = new OperationHandler();
 
+// Obtain the operation result
 foreach ($queryOperations as $queryOperation){
     echo '<pre>';
     echo $operationHandler->doOperation($queryOperation);
