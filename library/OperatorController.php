@@ -6,6 +6,7 @@
  * Date: 26/04/2016
  * Time: 18:38
  */
+
 class OperatorController
 {
     private $firstOperator;

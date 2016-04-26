@@ -1,5 +1,4 @@
 <?php
-require_once 'library/OperatorController.php';
 
 /**
  * Created by PhpStorm.
@@ -7,7 +6,8 @@ require_once 'library/OperatorController.php';
  * Date: 25/04/2016
  * Time: 20:40
  */
-class Addition extends OperatorController
+
+class Addition extends OperatorController implements Operation
 {
     public function __construct($firstOperator, $secondOperator)
     {

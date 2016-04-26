@@ -1,13 +1,4 @@
 <?php
-
-$queryOperation = array(5, 'Plus', 3);
-$firstElement = (int)$queryOperation[0];
-$secondElement = (int)$queryOperation[2];
-$operationRequested = strtolower($queryOperation[1]);
-//$operation = array(2, 'Times', 8);
-
-echo "Operation: $operationRequested";
-
 spl_autoload_register(function($className) {
     $path = dirname(__FILE__)."/library/$className.php";
     if(file_exists($path)) {
@@ -17,24 +8,14 @@ spl_autoload_register(function($className) {
     }
 });
 
-try{
-    if(isset($operationRequested)) {
-        switch ($operationRequested) {
-            case 'plus':
-                $operation = 'Addition';
-                break;
-        }
+$queryOperations[] = array(5, 'Plus', 3);
+$queryOperations[] = array(5, 'Plus', 3);
+$queryOperations[] = array(5, 'Plus', 3);
 
-        $controller = new $operation($firstElement, $secondElement);
-        $result = $controller->doOperation();
+$operationHandler = new OperationHandler();
 
-        echo ' ## Result:: '.$result;
-    } else {
-        throw new Exception('Requested operation empty.', 2);
-    }
-}catch(Exception $e){
-    echo $e;
-    die('<h1>404 Not Found</h1>');
+foreach ($queryOperations as $queryOperation){
+    echo $operationHandler->doOperation($queryOperation);
 }
 
 
