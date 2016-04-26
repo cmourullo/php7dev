@@ -22,12 +22,12 @@ class OperationHandler
                     case 'minus':
                         $operation = 'Subtraction';
                         break;
-//                    case 'times':
-//                        $operation = 'Multiplication';
-//                        break;
-//                    case 'divide':
-//                        $operation = 'Division';
-//                        break;
+                    case 'times':
+                        $operation = 'Multiplication';
+                        break;
+                    case 'divide':
+                        $operation = 'Division';
+                        break;
                 }
 
                 $controller = new $operation($queryOperation[0], $queryOperation[2]);
