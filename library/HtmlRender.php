@@ -2,19 +2,32 @@
 require_once 'library/Render.php';
 require_once 'library/OutputHandler.php';
 
+/**
+ * Class CsvRender to render the coordinates using HTML output
+ */
 class HtmlRender extends OutputHandler implements Render
 {
+    /**
+     * HtmlRender constructor.
+     * @param $coordinates
+     */
     function __construct($coordinates)
     {
         parent::__construct($coordinates);
     }
 
+    /**
+     * @return string
+     */
     public function getHeader()
     {
         $header = "<html><head></head>";
         return $header;
     }
 
+    /**
+     * @return string
+     */
     public function getBody()
     {
         $body =  "<body>";
@@ -30,12 +43,18 @@ class HtmlRender extends OutputHandler implements Render
         return $body;
     }
 
-     public function getFooter()
+    /**
+     * @return string
+     */
+    public function getFooter()
     {
         $footer = "</html>";
         return $footer;
     }
 
+    /**
+     * Main function to render the coordinates using HTML output
+     */
     public function getRendering()
     {
         $fp = fopen("php://output", "w");

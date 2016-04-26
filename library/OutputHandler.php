@@ -1,15 +1,20 @@
 <?php
 
 /**
- * Created by PhpStorm.
- * User: carlos
- * Date: 25/04/2016
- * Time: 18:44
+ * Class OutputHandler: this class generate the coordinates table using the delimiters that we want to use
+ * depending on the output format that we choose.
  */
 class OutputHandler
 {
+    /**
+     * @var
+     */
     private $coordinates;
 
+    /**
+     * OutputHandler constructor.
+     * @param $coordinates
+     */
     function __construct($coordinates)
     {
         foreach ($coordinates as $coordinate) {
@@ -20,6 +25,14 @@ class OutputHandler
         }
     }
 
+    /**
+     * @param $openTable
+     * @param $closeTable
+     * @param $openColumn
+     * @param $closeColumn
+     * @param $rowSeparate
+     * @return string
+     */
     public function getTable($openTable, $closeTable, $openColumn, $closeColumn, $rowSeparate)
     {
         $table = $openTable;
